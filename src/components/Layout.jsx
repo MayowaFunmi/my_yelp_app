@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useAuthenticator, Heading, View } from '@aws-amplify/ui-react';
+import { useAuthenticator, View } from '@aws-amplify/ui-react';
 import './Layout.css';
 import logo from '../images/yelp.png';
 
@@ -59,7 +59,7 @@ export function Layout() {
           )}
         </ul>
       </nav>
-      <Heading level={1}>Example Auth Routes App</Heading>
+      {/* <Heading level={1}>Example Auth Routes App</Heading> */}
       <View>
         {route === 'authenticated' ? 'You are logged in!' : 'Please Login!'}
       </View>

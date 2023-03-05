@@ -3,9 +3,11 @@ import { useAuthenticator } from '@aws-amplify/ui-react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createRestaurant } from '../graphql/mutations';
 import './Restaurant.css';
+import ListRestaurants from './ListRestaurants';
 
-export function Restaurant() {
+export function Restaurant({ data }) {
   const { route } = useAuthenticator((context) => [context.route]);
+  const [updateList, setUpdateList] = useState(false);
 
   const CreateRestaurantForm = () => {
     const [name, setName] = useState('');
@@ -29,6 +31,7 @@ export function Restaurant() {
         setName('');
         setDescription('');
         setCity('');
+        setUpdateList(true);
       } catch (error) {
         console.error(error);
       }
@@ -67,7 +70,14 @@ export function Restaurant() {
       </form>
     );
   };
-  return route === 'authenticated' ? <CreateRestaurantForm /> : 'Loading ...';
+  return route === 'authenticated' ? (
+    <>
+      <CreateRestaurantForm />
+      <ListRestaurants data={data} updateList={updateList} />
+    </>
+  ) : (
+    'Loading ...'
+  );
 
   // const message =
   //   route === 'authenticated' ? CreateRestaurantForm : 'Loading...';
