@@ -26,6 +26,9 @@ export function Restaurant() {
           graphqlOperation(createRestaurant, { input })
         );
         console.log(data);
+        setName('');
+        setDescription('');
+        setCity('');
       } catch (error) {
         console.error(error);
       }

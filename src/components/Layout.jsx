@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useAuthenticator, Heading, View } from '@aws-amplify/ui-react';
 import './Layout.css';
+import logo from '../images/yelp.png';
 
 export function Layout() {
   const { route, signOut } = useAuthenticator((context) => [
@@ -20,8 +21,8 @@ export function Layout() {
     <>
       <nav className="navbar">
         <div className="navbar-logo">
-          <img src="/logo.png" alt="Logo" />
-          <span>My App</span>
+          <img src={logo} alt="Logo" />
+          <span>My Yelp</span>
         </div>
         <ul className="navbar-nav">
           <li className="nav-item">
@@ -29,14 +30,14 @@ export function Layout() {
               Home
             </button>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <button
               className="nav-link"
               onClick={() => navigate('/restaurant')}
             >
               Restaurant
             </button>
-          </li>
+          </li> */}
           <li className="nav-item">
             <button className="nav-link" onClick={() => navigate('/about')}>
               About

@@ -4,7 +4,6 @@ import { About } from './components/About';
 import { Home } from './components/Home';
 import { Layout } from './components/Layout';
 import { Login } from './components/Login';
-import { Restaurant } from './components/Restaurant';
 import { RequireAuth } from './RequireAuth';
 
 function MyRoutes() {
@@ -12,13 +11,13 @@ function MyRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          {/* <Route index element={<Home />} /> */}
 
           <Route
-            path="/restaurant"
+            path="/"
             element={
               <RequireAuth>
-                <Restaurant />
+                <Home />
               </RequireAuth>
             }
           />
